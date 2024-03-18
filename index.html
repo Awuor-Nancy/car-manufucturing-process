@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Manufacturing Process Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <ul class="phase-list">
+          <li class="phase" data-phase="research">
+            <i class="material-icons">bar_chart</i>Market Research
+          </li>
+          <li class="phase" data-phase="planning">
+            <i class="material-icons">calendar_today</i>Planning
+          </li>
+          <li class="phase" data-phase="design">
+            <i class="material-icons">edit</i>Design
+          </li>
+          <li class="phase" data-phase="manufacturing">
+            <i class="material-icons">build</i>Manufacturing
+          </li>
+          <li class="phase" data-phase="sales">
+            <i class="material-icons">sell</i>Sales/Marketing
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Car Manufacturing Process</h1>
+        </header>
+        <div id="phase-details"></div>
+      </main>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

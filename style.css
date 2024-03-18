@@ -1,0 +1,82 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+.dashboard {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #eeeeee;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.phase-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.material-icons {
+  color: #29dee4;
+  padding: 5px;
+  margin-right: 1rem; 
+}
+
+.phase {
+  padding: 0.5rem 0;
+  margin: 3.5rem 0; 
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bolder;
+  transition: background-color 0.2s ease-in-out;
+  /* text-align: left; */
+  display: flex;
+  align-items: center; 
+}
+
+.phase:hover {
+  background-color: #ddd;
+}
+
+.phase.active {
+  background-color: #ccc;
+}
+
+.main-content {
+  flex: auto;
+  padding: 1rem;
+}
+
+.main-header {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+#phase-details {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  min-height: calc(100vh - 10rem);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column; 
+  }
+
+  .sidebar {
+    width: 100%; 
+  }
+
+  .main-content {
+    padding: 1rem 0; 
+  }
+}
