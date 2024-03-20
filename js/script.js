@@ -287,7 +287,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
-    });
+  });
+  
+  
 
   // Add event listener to toggle visibility of subphases for "External Research"
   const externalButton = document.querySelector('.timeline .phase:nth-child(1) button');
