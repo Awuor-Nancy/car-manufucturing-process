@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Manufacturing Process Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-  </head>
-  <body>
-    <div class="dashboard">
-      <aside class="sidebar">
-        <ul class="phase-list">
-          <li class="phase" data-phase="research">
-            <i class="material-icons">bar_chart</i>Market Research
-          </li>
-          <li class="phase" data-phase="planning">
-            <i class="material-icons">calendar_today</i>Planning
-          </li>
-          <li class="phase" data-phase="design">
-            <i class="material-icons">edit</i>Design
-          </li>
-          <li class="phase" data-phase="manufacturing">
-            <i class="material-icons">build</i>Manufacturing
-          </li>
-          <li class="phase" data-phase="sales">
-            <i class="material-icons">sell</i>Sales/Marketing
-          </li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Phases Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Phases Dashboard</h1>
+        <!-- Search bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Please do the honours and earch...">
+        </div>
+        <ul class="timeline">
+            <!-- Phases and subphases -->
+            <li>
+                <!-- <button class="subphase-btn">External Research</button> -->
+                <ul class="subphases">
+                    <!-- Placeholder for subphases -->
+                    <li>
+                        <h3>B2C</h3>
+                        <ul class="subtasks">
+                            <!-- Placeholder for subtasks -->
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
-      </aside>
-
-      <main class="main-content">
-        <header class="main-header">
-          <h1>Car Manufacturing Process</h1>
-        </header>
-        <div id="phase-details"></div>
-      </main>
     </div>
-    <script src="script.js"></script>
-  </body>
+    <script src="js/script.js"></script>
+</body>
 </html>

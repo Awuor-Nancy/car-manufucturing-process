@@ -1,0 +1,113 @@
+body {
+  /* font-family: Arial, sans-serif; */
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.search-container{
+  text-align: center;
+  margin: 20px;
+}
+
+#searchInput{
+width: 100%;
+padding: 10px;
+border-radius: 10px;
+border: 1px solid #ccc;
+font-size: 16px;
+box-sizing: border-box;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+}
+
+.phase {
+  margin-bottom: 30px; /* Increase margin between phases */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative; /* Add position relative to contain the icon */
+}
+
+.phase:hover {
+  background-color: #e0e0e0; /* New background color on hover */
+}
+
+.phase h2 {
+  margin-top: 0;
+  margin-bottom: 10px; 
+  color: #333;
+  cursor: pointer;
+}
+
+.phase .subphases.active {
+  display: block;
+  margin-top: 10px; 
+}
+
+.subphases.active li {
+  display: block;
+  margin-top: 5px; 
+}
+
+.subtasks.active li {
+  display: block;
+}
+
+.subtasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.data-tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+.subphases {
+  display: none;
+}
+
+button {
+  background-color: rgb(76, 226, 249);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: block;
+  width: 400px; 
+  text-align: center;
+  cursor: pointer;
+}
+
+.material-icons-outlined {
+  vertical-align: middle; 
+  margin-right: 20px; 
+  color: rgb(19, 250, 250);
+}
