@@ -1,36 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Phases Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+  </head>
+  <body>
     <div class="container">
-        <h1>Project Phases Dashboard</h1>
-        <!-- Search bar -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Please do the honours and earch...">
-        </div>
-        <ul class="timeline">
-            <!-- Phases and subphases -->
+      <h1>
+        Hello<span>&#128075;</span>Welcome to Liz Motors Timeline Mindmap Dashboard
+      </h1>
+
+      <!-- Search bar -->
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </div>
+      <ul class="timeline">
+        <!-- Phases and subphases -->
+        <li>
+          <!-- <button class="subphase-btn">External Research</button> -->
+          <ul class="subphases">
+            <!-- Placeholder for subphases -->
             <li>
-                <!-- <button class="subphase-btn">External Research</button> -->
-                <ul class="subphases">
-                    <!-- Placeholder for subphases -->
-                    <li>
-                        <h3>B2C</h3>
-                        <ul class="subtasks">
-                            <!-- Placeholder for subtasks -->
-                        </ul>
-                    </li>
-                </ul>
+              <h3>B2C</h3>
+              <ul class="subtasks">
+                <!-- Placeholder for subtasks -->
+              </ul>
             </li>
-        </ul>
+          </ul>
+        </li>
+      </ul>
+
+      <h1 class="topic-heading">Progress Overview</h1>
+
+      <!-- Container for phase charts -->
+      <div class="phase-chart-container">   
+        <!-- Placeholder for phase charts -->
+
+      </div>
     </div>
     <script src="js/script.js"></script>
-</body>
+    <script>
+      // Create charts for each phase
+      const phaseCharts = [];
+      const phaseNames = [
+        "Market Research",
+        "Planning",
+        "Design",
+        "Manufacturing",
+        "Sales and Marketing",
+      ];
+      const phaseColors = [
+        "rgba(255, 140, 170, 1)",
+        "rgba(54, 191, 255, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+      ];
+
+      phaseNames.forEach((phaseName, index) => {
+        const canvasId = `phaseChart${index + 1}`;
+        const canvasElement = document.createElement("canvas");
+        canvasElement.id = canvasId;
+        canvasElement.width = 400;
+        canvasElement.height = 200;
+
+        // Create a div to contain the phase name and chart
+        const phaseChartContainer = document.createElement("div");
+        phaseChartContainer.classList.add("phase-chart");
+        phaseChartContainer.innerHTML = `<h2>${phaseName}</h2>`;
+        phaseChartContainer.appendChild(canvasElement);
+
+        // Append the div to the phase-chart-container
+        document
+          .querySelector(".phase-chart-container")
+          .appendChild(phaseChartContainer);
+
+        const phaseChartContext = document
+          .getElementById(canvasId)
+          .getContext("2d");
+        const phaseChart = new Chart(phaseChartContext, {
+          type: "line",
+          data: {
+            labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+            datasets: [
+              {
+                label: phaseName,
+                backgroundColor: phaseColors[index],
+                borderColor: phaseColors[index],
+                borderWidth: 1,
+                data: [12, 19, 7, 30], // Sample data for the phase
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Progress (%)",
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "Weeks",
+                },
+              },
+            },
+          },
+        });
+
+        phaseCharts.push(phaseChart);
+      });
+    </script>
+  </body>
 </html>

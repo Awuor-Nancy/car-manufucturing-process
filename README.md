@@ -31,4 +31,4 @@ The Project Phases Dashboard provides a visual representation of project phases 
    Run the project by running the live srerver @port 5500
 
 7. ## License
-This project was build by Nancy-Awuor.
+This project was built by Nancy-Awuor.

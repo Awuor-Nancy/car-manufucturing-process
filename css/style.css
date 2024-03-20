@@ -1,113 +1,179 @@
 body {
-  /* font-family: Arial, sans-serif; */
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+    /* font-family: Arial, sans-serif; */
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  text-align: center;
-  color: #333;
+    text-align: center;
+    color: #333;
 }
 
-.search-container{
-  text-align: center;
-  margin: 20px;
+.search-container {
+    text-align: center;
+    margin: 20px;
 }
 
-#searchInput{
-width: 100%;
-padding: 10px;
-border-radius: 10px;
-border: 1px solid #ccc;
-font-size: 16px;
-box-sizing: border-box;
+#searchInput {
+    width: 50%;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .timeline {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .phase {
-  margin-bottom: 30px; /* Increase margin between phases */
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative; /* Add position relative to contain the icon */
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
 }
 
 .phase:hover {
-  background-color: #e0e0e0; /* New background color on hover */
+    background-color: #e0e0e0;
 }
 
 .phase h2 {
-  margin-top: 0;
-  margin-bottom: 10px; 
-  color: #333;
-  cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    cursor: pointer;
 }
 
 .phase .subphases.active {
-  display: block;
-  margin-top: 10px; 
+    display: block;
+    margin-top: 10px;
 }
 
 .subphases.active li {
-  display: block;
-  margin-top: 5px; 
+    display: block;
+    margin-top: 5px;
 }
 
 .subtasks.active li {
-  display: block;
+    display: block;
 }
 
 .subtasks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
 }
 
 .data-tooltip {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 5px;
-  border-radius: 3px;
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    z-index: 1;
 }
 
 .subphases {
-  display: none;
+    display: none;
 }
 
 button {
-  background-color: rgb(76, 226, 249);
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 20px auto;
-  display: block;
-  width: 400px; 
-  text-align: center;
-  cursor: pointer;
+    background-color: rgba(54, 191, 255, 1);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+    width: 400px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .material-icons-outlined {
-  vertical-align: middle; 
-  margin-right: 20px; 
-  color: rgb(19, 250, 250);
+    vertical-align: middle;
+    margin-right: 20px;
+    font-size: 100px;
+    color: rgba(255, 140, 170, 1);
+}
+
+/* Chart styles */
+.phase-chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.phase-chart {
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.topic-heading {
+    text-align: center;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .phase {
+        flex: 1 1 calc(50% - 20px);
+        margin-right: 0;
+    }
+
+    .phase-chart {
+        width: calc(100% - 40px);
+        margin-right: 0;
+    }
+
+    button {
+        width: calc(100% - 40px);
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    .material-icons-outlined {
+        display: block;
+        margin: 0 auto 10px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .phase h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #333;
+        cursor: pointer;
+        text-align: center;
+        /* Center the text */
+    }
 }
