@@ -3,6 +3,7 @@
 This is a simple web application for visualizing a car manufacturing project phases and subphases.
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
@@ -30,5 +31,7 @@ The Project Phases Dashboard provides a visual representation of project phases 
    navugate to a directory in your machine and create a folder to store the project.
    Run the project by running the live srerver @port 5500
 
-7. ## License
-This project was built by Nancy-Awuor.
+   ```
+
+2. ## License
+   This project was built by Nancy-Awuor.
