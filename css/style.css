@@ -1,12 +1,5 @@
-body {
-    /* font-family: Arial, sans-serif; */
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-}
-
 .container {
-    max-width: 80%;
+    max-width: 90%;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
@@ -25,13 +18,13 @@ h1 {
 }
 
 #searchInput {
-    width: 50%;
+    width: 100%;
     padding: 10px;
-    margin: 20px;
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
     box-sizing: border-box;
+    margin: 20px;
 }
 
 .timeline {
@@ -114,11 +107,10 @@ button {
 .material-icons-outlined {
     vertical-align: middle;
     margin-right: 20px;
-    font-size: 100px;
     color: rgba(255, 140, 170, 1);
 }
 
-/* Chart styles */
+/* chart styles */
 .phase-chart-container {
     display: flex;
     flex-wrap: wrap;
@@ -140,7 +132,7 @@ button {
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
     .container {
-        max-width: 100%;
+        max-width: 95%;
     }
 
     .phase {
@@ -155,25 +147,5 @@ button {
 
     button {
         width: calc(100% - 40px);
-    }
-
-    #searchInput {
-        width: 100%;
-    }
-
-    .material-icons-outlined {
-        display: block;
-        margin: 0 auto 10px;
-        font-size: 24px;
-        text-align: center;
-    }
-
-    .phase h2 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        color: #333;
-        cursor: pointer;
-        text-align: center;
-        /* Center the text */
     }
 }

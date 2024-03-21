@@ -264,32 +264,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById('searchInput')
   phases.forEach(phase => phase.renderPhase(timelineList));
 
-  searchInput.addEventListener('input', function() {
-        const searchText = this.value.trim().toLowerCase();
-        const phases = timelineList.querySelectorAll('.phase');
+  searchInput.addEventListener('input', function () {
+    const searchText = this.value.trim().toLowerCase();
+    const phases = timelineList.querySelectorAll('.phase');
 
-        phases.forEach(phase => {
-            const phaseName = phase.querySelector('h2').innerText.toLowerCase();
-            const subphases = phase.querySelectorAll('.subphase');
+    phases.forEach(phase => {
+      const phaseName = phase.querySelector('h2').innerText.toLowerCase();
+      const subphases = phase.querySelectorAll('.subphase');
 
-            if (phaseName.includes(searchText)) {
-                phase.style.display = 'block';
-            } else {
-                phase.style.display = 'none';
-            }
+      if (phaseName.includes(searchText)) {
+        phase.style.display = 'block';
+      } else {
+        phase.style.display = 'none';
+      }
 
-            subphases.forEach(subphase => {
-                const subphaseName = subphase.innerText.toLowerCase();
-                if (subphaseName.includes(searchText)) {
-                    subphase.style.display = 'block';
-                } else {
-                    subphase.style.display = 'none';
-                }
-            });
-        });
+      subphases.forEach(subphase => {
+        const subphaseName = subphase.innerText.toLowerCase();
+        if (subphaseName.includes(searchText)) {
+          subphase.style.display = 'block';
+        } else {
+          subphase.style.display = 'none';
+        }
+      });
+    });
   });
-  
-  
+
+
 
   // Add event listener to toggle visibility of subphases for "External Research"
   const externalButton = document.querySelector('.timeline .phase:nth-child(1) button');
