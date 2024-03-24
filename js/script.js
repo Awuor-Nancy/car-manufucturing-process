@@ -37,28 +37,6 @@ class Phase {
             const subtaskItem = document.createElement('li');
             subtaskItem.innerText = subtask;
 
-            // Add data for specific elements
-            if (subtask.includes("Public Data")) {
-              this.data[subtask] = "Government reports, industry trends, competitor analysis";
-            } else if (subtask.includes("Interview")) {
-              this.data[subtask] = "Focus groups, customer surveys, expert consultations";
-            } else if (subtask.includes("Online")) {
-              this.data[subtask] = "Customer reviews, social media analysis, online surveys";
-            } else if (subtask.includes("Health")) {
-              this.data[subtask] = "Market demand, competitor analysis, economic trends";
-            }
-
-            subtaskItem.addEventListener('mouseover', () => {
-              const dataTooltip = document.createElement('p');
-              dataTooltip.classList.add('data-tooltip');
-              dataTooltip.innerText = this.data[subtask];
-              subtaskItem.appendChild(dataTooltip);
-            });
-
-            subtaskItem.addEventListener('mouseout', () => {
-              subtaskItem.querySelector('.data-tooltip').remove();
-            });
-
             subtaskList.appendChild(subtaskItem);
           });
         }
@@ -84,8 +62,18 @@ class Phase {
       subphaseList.classList.toggle('active');
     });
 
+    // Add event listener to toggle visibility of subphases for "External Research"
+    if (this.name === "External Research") {
+      const externalButton = phaseElement.querySelector('button');
+      const externalSubphases = externalButton.nextElementSibling;
+      externalButton.addEventListener('click', () => {
+        externalSubphases.classList.toggle('active');
+      });
+    }
+
     container.appendChild(phaseElement);
   }
+
 
   getIcon() {
     switch (this.name) {
@@ -117,50 +105,50 @@ class Phase {
   }
 }
 
-// Define the phases with detailed information
+// Define the phases 
 const phases = [
-  new Phase(
-    "Market Research",
-    "Gather information about customer needs and market trends.",
-    [
-      new Phase(
-        "External Research",
-        "Conduct research outside the organization.",
-        [
-          new Phase(
-            "B2C",
-            "Research directly involving consumers.",
-            [
-              "Online",
-              "Interview",
-              "Public Data",
-              "Health"
-            ],
-            [],
-            2
-          ),
-          new Phase(
-            "B2B",
-            "Research involving other businesses.",
-            [],
-            [],
-            2
-          )
-        ],
-        [],
-        2
-      ),
-      new Phase(
-        "Internal Research",
-        "Conduct research within the organization.",
-        [],
-        [],
-        2
-      )
-    ],
-    [],
-    4
-  ),
+  // new Phase(
+  //   "Market Research",
+  //   "Gather information about customer needs and market trends.",
+  //   [
+  //     new Phase(
+  //       "External Research",
+  //       "Conduct research outside the organization.",
+  //       [
+  //         new Phase(
+  //           "B2C",
+  //           "Research directly involving consumers.",
+  //           [
+  //             "Online",
+  //             "Interview",
+  //             "Public Data",
+  //             "Health"
+  //           ],
+  //           [],
+  //           2
+  //         ),
+  //         new Phase(
+  //           "B2B",
+  //           "Research involving other businesses.",
+  //           [],
+  //           [],
+  //           2
+  //         )
+  //       ],
+  //       [],
+  //       2
+  //     ),
+  //     new Phase(
+  //       "Internal Research",
+  //       "Conduct research within the organization.",
+  //       [],
+  //       [],
+  //       2
+  //     )
+  //   ],
+  //   [],
+  //   4
+  // ),
   new Phase(
     "Planning",
     "Define car specifications, features, budget, and timeline.",
@@ -270,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     phases.forEach(phase => {
       const phaseName = phase.querySelector('h2').innerText.toLowerCase();
-      const subphases = phase.querySelectorAll('.subphase');
+      const subphases = phase.querySelectorAll('.subphases');
 
       if (phaseName.includes(searchText)) {
         phase.style.display = 'block';
@@ -289,13 +277,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Add event listener to toggle visibility of subphases and subtasks
+  const externalButton = document.querySelector('.phase:nth-child(1) button');
+  const externalSubphases = document.querySelector('.phase:nth-child(1) .subphases');
 
-
-  // Add event listener to toggle visibility of subphases for "External Research"
-  const externalButton = document.querySelector('.timeline .phase:nth-child(1) button');
-  const externalSubphases = externalButton.parentNode.querySelector('.subphases');
-  externalButton.addEventListener('click', () => {
+  externalButton.addEventListener('click', (event) => {
+    event.stopPropagation();
     externalSubphases.classList.toggle('active');
   });
-});
 
+  // Add event listener to toggle visibility of subtasks for "B2C"
+  const b2cButton = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) h3');
+  const b2cSubtasks = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) .subtasks');
+
+  // Hide subtasks for "B2C" initially
+  b2cSubtasks.style.display = 'none';
+
+  b2cButton.addEventListener('click', () => {
+    b2cSubtasks.style.display = b2cSubtasks.style.display === 'none' ? 'block' : 'none';
+  });
+});

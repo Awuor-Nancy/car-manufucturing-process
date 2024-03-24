@@ -1,5 +1,16 @@
+/* CSS to hide subphases and subtasks initially */
+.subphases,
+.subtasks {
+  display: none;
+}
+
+.active .subphases,
+.active .subtasks {
+  display: block;
+}
+
 .container {
-    max-width: 90%;
+    max-width: 95%;
     margin: 20px auto;
     background: linear-gradient(to bottom, #74f1f1, #ffffff);
     padding: 20px;
@@ -24,7 +35,6 @@ h1 {
     border: 1px solid #ccc;
     font-size: 16px;
     box-sizing: border-box;
-    margin: 20px;
     outline: none;
 }
 
@@ -44,11 +54,11 @@ h1 {
     transition: background-color 0.3s ease;
     position: relative;
     flex: 1;
-    margin-right: 20px;
+    margin: 15px;
 }
 
 .phase:hover {
-    background-color: #e0e0e0;
+    background-color: #fffafa;
 }
 
 .phase h2 {
@@ -79,6 +89,10 @@ h1 {
     display: none;
 }
 
+.active .subtasks {
+  display: block;
+}
+
 .data-tooltip {
     display: none;
     position: absolute;
@@ -94,15 +108,24 @@ h1 {
 }
 
 button {
-    background-color: rgba(54, 191, 255, 1);
+    background-color: rgb(86, 198, 249);
     border: none;
     padding: 10px;
     border-radius: 10px;
     margin: 20px auto;
     display: block;
-    width: 400px;
+    width: 200px;
     text-align: center;
     cursor: pointer;
+}
+
+.b2c-button {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer; 
+  width: 100px;
 }
 
 .material-icons-outlined {
