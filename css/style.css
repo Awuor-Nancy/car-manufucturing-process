@@ -1,19 +1,14 @@
-/* CSS to hide subphases and subtasks initially */
-.subphases,
-.subtasks {
-  display: none;
-}
-
-.active .subphases,
-.active .subtasks {
-  display: block;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
-    max-width: 95%;
+    max-width: 1200px;
     margin: 20px auto;
-    background: linear-gradient(to bottom, #74f1f1, #ffffff);
     padding: 20px;
+    background-color: #dfdfdf;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(2, 255, 234, 0.1);
 }
@@ -21,11 +16,12 @@
 h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .search-container {
     text-align: center;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 #searchInput {
@@ -43,22 +39,33 @@ h1 {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .phase {
-    margin-bottom: 30px;
+    flex: 1 1 calc(30% - 30px);
+    margin: 15px;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    position: relative;
-    flex: 1;
-    margin: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* hide subphases and subtasks initially */
+.subphases,
+.subtasks {
+    display: none;
+}
+
+.active .subphases,
+.active .subtasks {
+    display: block;
 }
 
 .phase:hover {
-    background-color: #fffafa;
+    background-color: #f0f0f0;
 }
 
 .phase h2 {
@@ -80,6 +87,11 @@ h1 {
 
 .subtasks.active li {
     display: block;
+    position: relative; /* Ensure positioning context for the tooltip */
+}
+
+.subtasks.active li:hover .data-tooltip {
+    display: block; /* Show tooltip on hover */
 }
 
 .subtasks {
@@ -90,21 +102,20 @@ h1 {
 }
 
 .active .subtasks {
-  display: block;
+    display: block;
 }
 
 .data-tooltip {
-    display: none;
+    display: none; /* Initially hidden */
     position: absolute;
+    bottom: calc(100% + 5px); /* Position above the subtask */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 5px;
     border-radius: 3px;
     z-index: 1;
-}
-
-.subphases {
-    display: none;
 }
 
 button {
@@ -120,17 +131,17 @@ button {
 }
 
 .b2c-button {
-  background-color: #ddd;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer; 
-  width: 100px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100px;
 }
 
 .material-icons-outlined {
     vertical-align: middle;
-    margin-right: 20px;
+    margin-right: 10px;
     color: rgba(255, 140, 170, 1);
 }
 

@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add event listener to toggle visibility of subphases and subtasks
+  // event listener to toggle visibility of subphases and subtasks
   const externalButton = document.querySelector('.phase:nth-child(1) button');
   const externalSubphases = document.querySelector('.phase:nth-child(1) .subphases');
 
@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
     externalSubphases.classList.toggle('active');
   });
 
-  // Add event listener to toggle visibility of subtasks for "B2C"
+  // event listener to toggle visibility of subtasks for "B2C"
   const b2cButton = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) h3');
   const b2cSubtasks = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) .subtasks');
 
