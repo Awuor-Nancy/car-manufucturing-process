@@ -5,7 +5,7 @@ class Phase {
     this.subphases = subphases;
     this.subtasks = subtasks;
     this.durationWeeks = durationWeeks;
-    this.data = {}; // Added data property for hover details
+    this.data = {};
   }
 
   renderPhase(container) {
@@ -107,48 +107,6 @@ class Phase {
 
 // Define the phases 
 const phases = [
-  // new Phase(
-  //   "Market Research",
-  //   "Gather information about customer needs and market trends.",
-  //   [
-  //     new Phase(
-  //       "External Research",
-  //       "Conduct research outside the organization.",
-  //       [
-  //         new Phase(
-  //           "B2C",
-  //           "Research directly involving consumers.",
-  //           [
-  //             "Online",
-  //             "Interview",
-  //             "Public Data",
-  //             "Health"
-  //           ],
-  //           [],
-  //           2
-  //         ),
-  //         new Phase(
-  //           "B2B",
-  //           "Research involving other businesses.",
-  //           [],
-  //           [],
-  //           2
-  //         )
-  //       ],
-  //       [],
-  //       2
-  //     ),
-  //     new Phase(
-  //       "Internal Research",
-  //       "Conduct research within the organization.",
-  //       [],
-  //       [],
-  //       2
-  //     )
-  //   ],
-  //   [],
-  //   4
-  // ),
   new Phase(
     "Planning",
     "Define car specifications, features, budget, and timeline.",
@@ -249,7 +207,7 @@ const phases = [
 
 document.addEventListener("DOMContentLoaded", function () {
   const timelineList = document.querySelector('.timeline');
-  const searchInput = document.getElementById('searchInput')
+  const searchInput = document.getElementById('searchInput');
   phases.forEach(phase => phase.renderPhase(timelineList));
 
   searchInput.addEventListener('input', function () {
@@ -277,23 +235,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // event listener to toggle visibility of subphases and subtasks
-  const externalButton = document.querySelector('.phase:nth-child(1) button');
-  const externalSubphases = document.querySelector('.phase:nth-child(1) .subphases');
+  // Event listeners to toggle visibility of subphases and subtasks for all phases
+  const phaseButtons = document.querySelectorAll('.phase button');
+  const phaseSubphases = document.querySelectorAll('.phase .subphases');
 
-  externalButton.addEventListener('click', (event) => {
-    event.stopPropagation();
-    externalSubphases.classList.toggle('active');
+  phaseButtons.forEach((button, index) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      phaseSubphases[index].classList.toggle('active');
+    });
   });
 
-  // event listener to toggle visibility of subtasks for "B2C"
-  const b2cButton = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) h3');
-  const b2cSubtasks = document.querySelector('.phase:nth-child(1) .subphases .subphase:nth-child(1) .subtasks');
+  // Event listener to toggle visibility of subtasks for "B2C" for all phases
+  const b2cButtons = document.querySelectorAll('.b2c-button');
+  const b2cSubtasks = document.querySelectorAll('.b2c-subtasks');
 
-  // Hide subtasks for "B2C" initially
-  b2cSubtasks.style.display = 'none';
-
-  b2cButton.addEventListener('click', () => {
-    b2cSubtasks.style.display = b2cSubtasks.style.display === 'none' ? 'block' : 'none';
+  b2cButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      b2cSubtasks[index].classList.toggle('active');
+    });
   });
 });

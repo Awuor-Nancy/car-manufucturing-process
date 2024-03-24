@@ -43,8 +43,8 @@ h1 {
 }
 
 .phase {
-    flex: 1 1 calc(30% - 30px);
-    margin: 15px;
+    flex: 1 1 calc(30% - 20px); /* Adjusted margin */
+    margin: 10px; /* Reduced margin */
     padding: 15px;
     background-color: #fff;
     border-radius: 10px;
@@ -120,6 +120,10 @@ button {
     padding: 5px 10px;
     cursor: pointer;
     width: 100px;
+}
+
+.toggle-research {
+  cursor: pointer;
 }
 
 .material-icons-outlined {

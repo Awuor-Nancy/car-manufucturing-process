@@ -20,54 +20,53 @@
     <span>&#128512;</span>
   </h1>
 
+  <!-- Search bar -->
   <div class="search-container">
     <input type="text" id="searchInput" placeholder="Search..." />
   </div>
   <ul class="timeline">
+    <!-- Phases and subphases -->
     <li>
       <div class="phase">
         <h2><span class="material-icons-outlined">business</span> Market Research</h2>
-        <p>
-          Gather information about customer needs and market trends.
-        </p>
-        <button class="custom-button subphase-toggle">View Subphases</button>
+        <p>Conduct research to understand the market landscape.</p>
+        <button class="subphase-toggle">View Details</button>
         <ul class="subphases">
           <li>
             <div class="subphase">
-              <h3 class="custom-button">
-                <span class="material-icons-outlined">public</span> External Research
-              </h3>
+              <h3 class="external-button"><span class="material-icons-outlined">public</span>External</h3>
+               <p>Conduct research both inside and outside the organization.</p>
               <ul class="subtasks">
-                <li>Online</li>
+                <li class="b2c-button">B2C</li>
+                <ul class="subtasks">
                 <li>Interview</li>
-                <li>Public Data</li>
+                <li>Online</li>
+                <li>Public_data</li>
                 <li>Health</li>
+              </ul>
+
+                <li class="b2b-button">B2B</li>
               </ul>
             </div>
           </li>
           <li>
-            <div class="subphase">
-              <h3 class="custom-button">
-                <span class="material-icons-outlined">home</span> Internal Research
-              </h3>
-              <ul class="subtasks">
-                <li>Sales Data Analysis</li>
-                <li>Customer Feedback Reports</li>
-                <li>Focus Groups with Existing Customers</li>
-              </ul>
+            <div class="subphase internal-research">
+              <h3><span class="material-icons-outlined">home</span>Internal</h3>
+               <p>Conduct research within the organization.</p>
+              <!-- subtasks for Internal Research if needed in future-->
             </div>
           </li>
         </ul>
       </div>
     </li>
-    </ul>
+  </ul>
 
   <h1 style="margin-top: 80px;">Progress Analysis</h1>
 
   <div class="phase-chart-container">
+    <!-- Placeholder for phase charts -->
   </div>
 </div>
-
 
 <script src="js/script.js"></script>
 <script>
