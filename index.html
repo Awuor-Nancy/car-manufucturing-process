@@ -30,30 +30,39 @@
       <div class="phase">
         <h2><span class="material-icons-outlined">business</span> Market Research</h2>
         <p>Conduct research to understand the market landscape.</p>
-        <button class="subphase-toggle">View Details</button>
+        
         <ul class="subphases">
           <li>
             <div class="subphase">
-              <h3 class="external-button"><span class="material-icons-outlined">public</span>External</h3>
-               <p>Conduct research both inside and outside the organization.</p>
+              <h3><span class="material-icons-outlined">public</span>External</h3>
+              <p>Conduct research both inside and outside the organization.</p>
+              <button class="subphase-toggle">External Details</button>
               <ul class="subtasks">
-                <li class="b2c-button">B2C</li>
-                <ul class="subtasks">
-                <li>Interview</li>
-                <li>Online</li>
-                <li>Public_data</li>
-                <li>Health</li>
-              </ul>
-
-                <li class="b2b-button">B2B</li>
+                <li class="b2c-button"><b>B2C</b>
+                  <ul class="subtasks-details">
+                    <li id="interview-chart-container" class="b2c-chart-container">Interview
+                      <div class="b2c-chart-tooltip"></div>
+                    </li>
+                    <li id="online-chart-container" class="b2c-chart-container">Online
+                      <div class="b2c-chart-tooltip"></div>
+                    </li>
+                    <li id="public-data-chart-container" class="b2c-chart-container">Public
+                      Data
+                      <div class="b2c-chart-tooltip"></div>
+                    </li>
+                    <li id="health-chart-container" class="b2c-chart-container">Health
+                      <div class="b2c-chart-tooltip"></div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="b2b-button"><b>B2B</b></li>
               </ul>
             </div>
           </li>
           <li>
             <div class="subphase internal-research">
               <h3><span class="material-icons-outlined">home</span>Internal</h3>
-               <p>Conduct research within the organization.</p>
-              <!-- subtasks for Internal Research if needed in future-->
+              <p>Conduct research within the organization.</p>
             </div>
           </li>
         </ul>
@@ -70,7 +79,71 @@
 
 <script src="js/script.js"></script>
 <script>
-  // Sample phase data
+  document.addEventListener("DOMContentLoaded", function () {
+    const b2cData = {
+        "Interview": {
+          "Intervies": 4,
+            "Participants": 50,
+            "Average Rating": 4.2 
+        },
+        "Online": {
+            "Views": 5000,
+            "Sales": 1200,
+            "Conversion Rate": 24, 
+            "Average Order Value": 150
+        },
+        "Public Data": {
+          "data sites": 12,
+            "Data Points": 10,
+            "Sources": 5
+        },
+        "Health": {
+          "count": 10,
+            "Customer Satisfaction": 80, 
+            "Return Rate": 10 
+        }
+    };
+
+    // Function to display data for a specific subtask
+    function displaySubtaskData(subtaskName) {
+        const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
+        if (subtaskContainer) {
+            subtaskContainer.innerHTML = '';
+            const data = b2cData[subtaskName];
+            for (const [key, value] of Object.entries(data)) {
+                const p = document.createElement('p');
+                p.textContent = `${key}: ${value}`;
+                subtaskContainer.appendChild(p);
+            }
+            subtaskContainer.style.display = 'block';
+        }
+    }
+
+    // Function to hide data for a specific subtask
+    function hideSubtaskData(subtaskName) {
+        const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
+        if (subtaskContainer) {
+            subtaskContainer.style.display = 'none';
+        }
+    }
+
+    // Attach event listeners to each B2C subtask li element
+    const b2cSubtaskElements = document.querySelectorAll('.b2c-button ul li');
+
+    b2cSubtaskElements.forEach(subtaskElement => {
+        subtaskElement.addEventListener('mouseenter', function () {
+            const subtaskName = this.textContent.trim();
+            displaySubtaskData(subtaskName);
+        });
+
+        subtaskElement.addEventListener('mouseleave', function () {
+            const subtaskName = this.textContent.trim();
+            hideSubtaskData(subtaskName);
+        });
+    });
+});
+
+  // Sample phase progress anlysys data
   const phaseData = [
     {
       name: "Market Research",

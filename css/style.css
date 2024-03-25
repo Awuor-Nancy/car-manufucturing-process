@@ -43,8 +43,8 @@ h1 {
 }
 
 .phase {
-    flex: 1 1 calc(30% - 20px); /* Adjusted margin */
-    margin: 10px; /* Reduced margin */
+    flex: 1 1 calc(30% - 20px); 
+    margin: 10px;
     padding: 15px;
     background-color: #fff;
     border-radius: 10px;
@@ -53,15 +53,55 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Adjustments for Market Research section */
+.phase .subphases {
+    display: flex; /* Display subphases in a row */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-between; /* Distribute items evenly */
+    margin-top: 20px; /* Add some top margin */
+}
+
+.subphases li {
+    flex: 0 1 calc(50% - 20px); /* Each item takes half the width with spacing */
+    margin-bottom: 20px; /* Add bottom margin */
+}
+
+.subphase h3 {
+    margin-top: 0; /* Reset top margin */
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+.subphase p {
+    margin-bottom: 0; /* Reset bottom margin */
+}
+
+.subphase-toggle {
+    margin-top: 10px; /* Add top margin to the View Details button */
+}
+
+.b2c-button {
+    display: flex; /* Display B2C button content in a row */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #ddd; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Border radius */
+    padding: 5px 10px; /* Padding */
+    cursor: pointer; /* Cursor pointer */
+    width: 100px; /* Set width */
+    margin: 20px auto; /* Center the button */
+}
+
 /* hide subphases and subtasks initially */
 .subphases,
 .subtasks {
     display: none;
+    list-style: none;
 }
 
 .active .subphases,
 .active .subtasks {
-    display: block;
+    display: none;
 }
 
 .phase:hover {
@@ -101,6 +141,35 @@ h1 {
     display: block;
 }
 
+.subtasks-details {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.b2c-button:hover .subtasks-details {
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subtasks-details {
+    display: none;
+}
+
+.subtasks-details li {
+    cursor: pointer;
+}
+
+.subtasks-details li:hover {
+    background-color: rgb(86, 198, 249);
+}
+
 button {
     background-color: rgb(86, 198, 249);
     border: none;
@@ -113,15 +182,6 @@ button {
     cursor: pointer;
 }
 
-.b2c-button {
-    background-color: #ddd;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100px;
-}
-
 .toggle-research {
   cursor: pointer;
 }
@@ -132,7 +192,7 @@ button {
     color: rgba(255, 140, 170, 1);
 }
 
-/* chart styles */
+/* progress anlysischart styles */
 .phase-chart-container {
     display: flex;
     flex-wrap: wrap;
@@ -150,6 +210,7 @@ button {
     margin-top: 50px;
     padding: 10px;
 }
+
 
 /* Media queries */
 @media screen and (max-width: 768px) {
