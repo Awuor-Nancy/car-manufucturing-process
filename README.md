@@ -32,6 +32,8 @@ The Project Phases Dashboard provides a visual representation of project phases 
    Run the project by running the live srerver @port 5500
 
    ```
+2. #future-enhancements
+To create the dashoboard using react framework and modify back-end for data fetching and maniplation.
 
-2. ## License
+3. ## License
    This project was built by Nancy-Awuor.
