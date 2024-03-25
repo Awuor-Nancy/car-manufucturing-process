@@ -30,7 +30,7 @@
       <div class="phase">
         <h2><span class="material-icons-outlined">business</span> Market Research</h2>
         <p>Conduct research to understand the market landscape.</p>
-        
+
         <ul class="subphases">
           <li>
             <div class="subphase">
@@ -81,67 +81,67 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const b2cData = {
-        "Interview": {
-          "Intervies": 4,
-            "Participants": 50,
-            "Average Rating": 4.2 
-        },
-        "Online": {
-            "Views": 5000,
-            "Sales": 1200,
-            "Conversion Rate": 24, 
-            "Average Order Value": 150
-        },
-        "Public Data": {
-          "data sites": 12,
-            "Data Points": 10,
-            "Sources": 5
-        },
-        "Health": {
-          "count": 10,
-            "Customer Satisfaction": 80, 
-            "Return Rate": 10 
-        }
+      "Interview": {
+        "Intervies": 4,
+        "Participants": 50,
+        "Average Rating": 4.2
+      },
+      "Online": {
+        "Views": 5000,
+        "Sales": 1200,
+        "Conversion Rate": 24,
+        "Average Order Value": 150
+      },
+      "Public Data": {
+        "data sites": 12,
+        "Data Points": 10,
+        "Sources": 5
+      },
+      "Health": {
+        "count": 10,
+        "Customer Satisfaction": 80,
+        "Return Rate": 10
+      }
     };
 
     // Function to display data for a specific subtask
     function displaySubtaskData(subtaskName) {
-        const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
-        if (subtaskContainer) {
-            subtaskContainer.innerHTML = '';
-            const data = b2cData[subtaskName];
-            for (const [key, value] of Object.entries(data)) {
-                const p = document.createElement('p');
-                p.textContent = `${key}: ${value}`;
-                subtaskContainer.appendChild(p);
-            }
-            subtaskContainer.style.display = 'block';
+      const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
+      if (subtaskContainer) {
+        subtaskContainer.innerHTML = '';
+        const data = b2cData[subtaskName];
+        for (const [key, value] of Object.entries(data)) {
+          const p = document.createElement('p');
+          p.textContent = `${key}: ${value}`;
+          subtaskContainer.appendChild(p);
         }
+        subtaskContainer.style.display = 'block';
+      }
     }
 
     // Function to hide data for a specific subtask
     function hideSubtaskData(subtaskName) {
-        const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
-        if (subtaskContainer) {
-            subtaskContainer.style.display = 'none';
-        }
+      const subtaskContainer = document.getElementById(`${subtaskName.toLowerCase().replace(/\s/g, '-')}-chart-container`);
+      if (subtaskContainer) {
+        subtaskContainer.style.display = 'none';
+      }
     }
 
     // Attach event listeners to each B2C subtask li element
     const b2cSubtaskElements = document.querySelectorAll('.b2c-button ul li');
 
     b2cSubtaskElements.forEach(subtaskElement => {
-        subtaskElement.addEventListener('mouseenter', function () {
-            const subtaskName = this.textContent.trim();
-            displaySubtaskData(subtaskName);
-        });
+      subtaskElement.addEventListener('mouseenter', function () {
+        const subtaskName = this.textContent.trim();
+        displaySubtaskData(subtaskName);
+      });
 
-        subtaskElement.addEventListener('mouseleave', function () {
-            const subtaskName = this.textContent.trim();
-            hideSubtaskData(subtaskName);
-        });
+      subtaskElement.addEventListener('mouseleave', function () {
+        const subtaskName = this.textContent.trim();
+        hideSubtaskData(subtaskName);
+      });
     });
-});
+  });
 
   // Sample phase progress anlysys data
   const phaseData = [
